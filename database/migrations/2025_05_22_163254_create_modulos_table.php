@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('modulos', function (Blueprint $table) {
-             $table->unsignedBigInteger('id')->primary();
+            $table->unsignedBigInteger('id')->primary();
             $table->string('nombre')->unique();
             $table->boolean('estado')->default(1);
             $table->timestamps();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\sistema\general;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -12,7 +13,23 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $usuarios = DB::table('users as u')
+        ->join('user_role_submodulo as urs', 'u.id', '=', 'urs.user_id')
+        ->join('role_submodulo as rs', 'urs.role_submodulo_id', '=', 'rs.id')
+        ->join('roles as r', 'rs.role_id', '=', 'r.id')
+        ->join('submodulos as s', 'rs.submodulo_id', '=', 's.id')
+        ->join('modulos as m', 's.modulo_id', '=', 'm.id')
+        ->select(
+            'u.id as user_id',
+            'u.name as usuario',
+            'm.nombre as modulo',
+            's.nombre as submodulo',
+            'r.name as rol'
+        )
+        ->orderBy('u.id')
+        ->get();
+
+        return view('sistema.general.users.index', compact('usuarios'));
     }
 
     /**

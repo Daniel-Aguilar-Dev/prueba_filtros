@@ -11,20 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('submodulos', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
-            $table->string('nombre');
-            $table->foreignId('modulo_id')->constrained('modulos');
-            $table->boolean('estado')->default(1);
+        Schema::create('role_submodulo_permissions', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('role_submodulo_id')->constrained('role_submodulos');
+            $table->foreignId('permission_id')->constrained('permissions');
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations.a
      */
     public function down(): void
     {
-        Schema::dropIfExists('submodulos');
+        Schema::dropIfExists('role_submodulo_permissions');
     }
 };

@@ -9,7 +9,7 @@ class Modulo extends Model
     public $incrementing = false;
     protected $keyType = 'int';
     protected $fillable = [
-        'name', 'estado'
+        'nombre', 'estado'
     ];
     // un modulo puede tener muchos submodulos
     public function submodulos()

@@ -21,6 +21,11 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
+    //relacion uno a muchos tabla user_role_submodulo
+    public function userRoleSubmodulos()
+    {
+        return $this->hasMany(UserRoleSubmodulo::class);
+    }
     /**
      * The attributes that are mass assignable.
      *

@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('submodulos', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
-            $table->string('nombre');
-            $table->foreignId('modulo_id')->constrained('modulos');
-            $table->boolean('estado')->default(1);
+        Schema::create('user_role_submodulos', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('role_submodulo_id')->constrained('role_submodulos');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('submodulos');
+        Schema::dropIfExists('user_role_submodulos');
     }
 };

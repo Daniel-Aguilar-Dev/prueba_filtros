@@ -9,7 +9,7 @@ class Submodulo extends Model
     public $incrementing = false;
     protected $keyType = 'int';
     protected $fillable = [
-        'name', 'estado', 'modulo_id'
+        'nombre', 'estado', 'modulo_id'
     ];
 
     // un submodulo pertenece a un modulo
