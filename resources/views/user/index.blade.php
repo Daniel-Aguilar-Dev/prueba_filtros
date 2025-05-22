@@ -27,9 +27,15 @@
                         @foreach ($usuario->roleSubmodulos as $urs)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $usuario->name }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $urs->roleSubmodulo->submodulo->modulo->nombre }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $urs->roleSubmodulo->submodulo->nombre }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ $urs->roleSubmodulo->submodulo->modulo->nombre }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $urs->roleSubmodulo->submodulo->nombre }}
+                                </td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $urs->roleSubmodulo->role->name }}</td>
+                                <td>
+                                    <a href="{{ route('user.edit', $usuario) }}"
+                                        class="btn btn-sm btn-primary">Editar</a>
+                                </td>
                             </tr>
                         @endforeach
                     @endforeach
