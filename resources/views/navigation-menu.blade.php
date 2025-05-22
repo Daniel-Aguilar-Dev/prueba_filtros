@@ -18,6 +18,9 @@
                     <x-nav-link href="{{ route('user.index') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Users') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('permisos.index') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Permisos') }}
+                    </x-nav-link>
                 </div>
             </div>
 
