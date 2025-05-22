@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\sistema\general;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
 {
@@ -12,7 +14,14 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::all();
+        return view('user.index', compact('user'));
+    }
+
+    public function data()
+    {
+        return DataTables::of(User::select('id', 'name', 'email'))
+            ->make(true);
     }
 
     /**
@@ -21,6 +30,7 @@ class UserController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
