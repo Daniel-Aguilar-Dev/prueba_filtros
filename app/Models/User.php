@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Models\Sistema\General\UserRoleSubmodulo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -22,7 +24,7 @@ class User extends Authenticatable
     use TwoFactorAuthenticatable;
     use HasRoles;
     //relacion uno a muchos tabla user_role_submodulo
-    public function userRoleSubmodulos()
+    public function roleSubmodulos()
     {
         return $this->hasMany(UserRoleSubmodulo::class);
     }

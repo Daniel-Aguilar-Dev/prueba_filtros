@@ -14,9 +14,9 @@ class RoleSubmodulo extends Model
     //relacion a tabla rol
     public function role()
     {
-        return $this->belongsTo( Role::class);
+        return $this->belongsTo(Role::class);
     }
-    //relacion a tabla submodulo
+
     public function submodulo()
     {
         return $this->belongsTo(Submodulo::class);

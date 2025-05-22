@@ -20,3 +20,7 @@ Route::middleware([
 
 Route::resource('user', UserController::class)->names('user');
 Route::get('user/data', [UserController::class, 'data'])->name('user.data');
+
+Route::get('/asignar-rol', [UserController::class, 'formAsignarRol'])->name('usuarios.form-asignar-rol');
+Route::post('/asignar-rol', [UserController::class, 'asignarRol'])->name('usuarios.asignar-rol');
+

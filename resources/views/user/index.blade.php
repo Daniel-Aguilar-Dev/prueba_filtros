@@ -10,15 +10,31 @@
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Modulo</th>
-                        <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Submodulo</th>
-                        <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Rol</th>
+                        {{-- <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID
+                        </th> --}}
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre
+                        </th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Modulo
+                        </th>
+                        <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Submodulo</th>
+                        <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Rol
+                        </th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-{{--                     @foreach ($user as $usuario)
+                    @foreach ($usuarios as $usuario)
+                        @foreach ($usuario->roleSubmodulos as $urs)
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $usuario->name }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $urs->roleSubmodulo->submodulo->modulo->nombre }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $urs->roleSubmodulo->submodulo->nombre }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $urs->roleSubmodulo->role->name }}</td>
+                            </tr>
+                        @endforeach
+                    @endforeach
+
+                    {{--                     @foreach ($user as $usuario)
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $usuario->id }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $usuario->name }}</td>
