@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\sistema\general\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,3 +16,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+Route::resource('user', UserController::class)->names('user');
+Route::get('user/data', [UserController::class, 'data'])->name('user.data');

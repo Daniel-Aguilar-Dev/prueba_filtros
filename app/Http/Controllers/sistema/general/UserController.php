@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\sistema\general;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
+
 
 class UserController extends Controller
 {
@@ -13,6 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
+
         $usuarios = DB::table('users as u')
         ->join('user_role_submodulo as urs', 'u.id', '=', 'urs.user_id')
         ->join('role_submodulo as rs', 'urs.role_submodulo_id', '=', 'rs.id')
@@ -30,6 +34,7 @@ class UserController extends Controller
         ->get();
 
         return view('sistema.general.users.index', compact('usuarios'));
+
     }
 
     /**
@@ -38,6 +43,7 @@ class UserController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
